@@ -6,4 +6,4 @@
 - `nano compose.yml`
 - `nano config.vars`
 - `docker compose up -d`
-- `docker logs -f planefence`
+- `docker ps`

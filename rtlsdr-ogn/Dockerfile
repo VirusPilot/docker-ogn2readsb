@@ -5,7 +5,7 @@ RUN apt update && \
     apt -y install ntp ntpdate telnet libpng16-16 wget gettext-base librtlsdr0 socat moreutils procserv
 
 RUN \
-    wget "http://download.glidernet.org/arm64/rtlsdr-ogn-bin-arm64-latest.tgz"; && \
+    wget "http://download.glidernet.org/arm64/rtlsdr-ogn-bin-arm64-latest.tgz"; \
     tar xzf rtlsdr-ogn-*.tgz && \
     rm rtlsdr-ogn-*.tgz
 

@@ -1,4 +1,4 @@
-### initial commit, not working for now !!!
+### initial commit
 ### steps
 - `sudo apt update`
 - `sudo usermod -aG docker $USER`

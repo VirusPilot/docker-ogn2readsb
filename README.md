@@ -7,3 +7,4 @@
 - `nano config.vars`
 - `docker compose up -d`
 - `docker ps`
+- `https://yourRaspberryPi.local/tar1090`

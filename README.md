@@ -5,10 +5,10 @@
 - `cd docker-ogn2readsb`
 - `sudo usermod -aG docker $USER`
 - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
-- `nano config.vars` modify accordingly:
+- `nano config.vars` modify according to your station, e.g:
   - STATION_LAT=50.0
   - STATION_LON=10.0
-  - STATION_ALT_MSL_M=260
+  - STATION_ALT_MSL_M=300
   - STATION_NAME=OGNTEST
   - METAR_SOURCE_ICAO=ETHN
   - APRS_SUBSCRIBE_FILTER=r/50.0/10.0/100
@@ -19,3 +19,4 @@
 - `docker compose up --detach --build`
 - `sudo reboot`
 - `https://yourRaspberryPi.local/tar1090`
+- enjoy

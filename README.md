@@ -1,8 +1,15 @@
 ### docker version of https://github.com/b3nn0/ogn2dump1090
 
-### supported platforms
+### supported operating systems
+Debian-based Linux Operating Systems like
+- Ubuntu
+- DietPi
+- RaspiOS (Buster, Bullseye and Bookworm)
+
+### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - amd64 (64-bit Intel CPUs)
+- WIP: armhf (32-bit ARM CPUs with hardware floating point processor)
 
 ### prepare
 - `sudo apt update && sudo apt install git`

@@ -1,10 +1,17 @@
 ### docker version of https://github.com/b3nn0/ogn2dump1090
 
+### supported platforms
+- arm64 (RaspiOS, MacOS)
+- x86
+
 ### prepare
 - `sudo apt update && sudo apt install git`
 - `git clone https://github.com/VirusPilot/docker-ogn2readsb`
 - `cd docker-ogn2readsb`
-- `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- RaspiOS
+  - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- others
+  - install Docker environment and SDR drivers
 - `sudo usermod -aG docker $USER && newgrp docker`
 
 ### configuration

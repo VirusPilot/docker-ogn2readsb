@@ -7,6 +7,6 @@
 - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
 - `nano compose.yml` (modify accordingly, e.g. SDR_868_SERIAL, METAR_SOURCE_ICAO, APRS_SUBSCRIBE_FILTER)
 - `nano config.vars` (modify accordingly, e.g. STATION_NAME)
-- `docker compose up -d`
+- `docker compose up --detach --build`
 - `sudo reboot`
 - `https://yourRaspberryPi.local/tar1090`

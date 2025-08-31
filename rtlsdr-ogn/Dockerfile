@@ -15,6 +15,7 @@ COPY startup.sh /app/
 
 RUN \
     cd rtlsdr-ogn && \
+    wget http://download.glidernet.org/common/WW15MGH.DAC  && \
     cp -v rtlsdr-ogn /etc/init.d/rtlsdr-ogn && \
     cp -v rtlsdr-ogn.conf /etc/rtlsdr-ogn.conf && \
     sed -i "s|/home/pi/rtlsdr-ogn|/app/rtlsdr-ogn|g" /etc/rtlsdr-ogn.conf && \

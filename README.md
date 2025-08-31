@@ -25,4 +25,4 @@
 - `sudo reboot`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
-- `https://yourRaspberryPi.local/tar1090`
+- `http://yourRaspberryPi.local/tar1090`

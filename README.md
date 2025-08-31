@@ -4,8 +4,8 @@
 - `sudo apt update && sudo apt install git`
 - `git clone https://github.com/VirusPilot/docker-ogn2readsb`
 - `cd docker-ogn2readsb`
-- `sudo usermod -aG docker $USER`
 - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- `sudo usermod -aG docker $USER`
 
 ### configuration
 - `nano config.vars`
@@ -21,7 +21,7 @@
   - SDR_1090_PPM=**0** <--- change only if you know your SDR's ppm
 
 ### build
-- `docker compose up --detach --build`
+- `sudo docker compose up --detach --build`
 - `sudo reboot`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance

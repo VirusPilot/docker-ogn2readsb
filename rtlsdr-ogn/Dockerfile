@@ -4,9 +4,13 @@ WORKDIR /app
 RUN apt update && \
     apt -y install ntp ntpdate telnet libpng16-16 wget gettext-base librtlsdr0 socat moreutils procserv
 
-RUN \
-    wget "http://download.glidernet.org/arm64/rtlsdr-ogn-bin-arm64-latest.tgz"; \
-    tar xzf rtlsdr-ogn-*.tgz && \
+RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \
+        wget "http://download.glidernet.org/x64/rtlsdr-ogn-bin-x64-latest.tgz"; \
+    else \
+        wget "http://download.glidernet.org/arm64/rtlsdr-ogn-bin-arm64-latest.tgz"; \
+    fi'
+
+RUN tar xzf rtlsdr-ogn-*.tgz && \
     rm rtlsdr-ogn-*.tgz
 
 COPY ogn-template.conf /app/

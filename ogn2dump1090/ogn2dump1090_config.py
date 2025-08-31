@@ -17,11 +17,3 @@ aprs_subscribe_filter = "${APRS_SUBSCRIBE_FILTER}"
 # ogn2dump1090 can convert it for you, by fetching METARS from a nearby airport via https://aviationweather.gov/data/api/
 # Must be the 4 letter ICAO code of a nearby airport, e.g. "EDNY". Test the request via https://aviationweather.gov/api/data/metar?ids=EDNY
 metar_source = "${METAR_SOURCE_ICAO}"
-
-# APRS Server is always active. If you want to use it, and have ogn2readsb act as an APRS proxy, change your rtlsdr-ogn configuration to include
-# something like
-# APRS:
-# {
-#   Call   = "NewOGNrx";
-#   Server = "localhost:14580";
-# };

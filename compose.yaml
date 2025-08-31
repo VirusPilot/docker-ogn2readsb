@@ -46,17 +46,18 @@ services:
       - 50002:50002
     env_file: config.vars
     environment:
-      - SDR_868_SERIAL=stx:868:0
-      - SDR_868_PPM=0
+      #- SDR_868_SERIAL=stx:868:0
+      #- SDR_868_PPM=0
       - APRS_SERVER=ogn2dump1090:14580
   ogn2dump1090:
     build: ogn2dump1090
     container_name: ogn2dump1090
     restart: unless-stopped
+    env_file: config.vars
     environment:
       - OGN_DECODE_TELNET_HOST=rtlsdr-ogn
       - OGN_DECODE_TELNET_PORT=50001
       - SBS_DESTINATION_HOST=readsb
       - SBS_DESTINATION_PORT=30008
-      - METAR_SOURCE_ICAO=ETHN
-      - APRS_SUBSCRIBE_FILTER=r/50.0/10.0/100
+      #- METAR_SOURCE_ICAO=ETHN
+      #- APRS_SUBSCRIBE_FILTER=r/50.0/10.0/100

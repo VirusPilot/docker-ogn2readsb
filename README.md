@@ -22,10 +22,10 @@ Debian-based Linux Operating Systems like
 - `nano config.vars`
   - STATION_LAT=**50.0** <--- enter your station latitude
   - STATION_LON=**10.0** <--- enter your station longitude
-  - STATION_ALT_MSL_M=**300** <--- enter your sattion altitude [m] AMSL
+  - STATION_ALT_MSL_M=**300** <--- enter your sattion altitude AMSL [m]
   - STATION_NAME=**OGNTEST** <--- enter your station name, please refer to http://wiki.glidernet.org/receiver-naming-convention
   - OGN_CENTER_FREQ=**868.8** <--- don't change unless you know what you are doing
-  - GSM_CENTER_FREQ=**0** <--- enter your closest GSM station frequency
+  - GSM_CENTER_FREQ=**0** <--- optional: enter your closest GSM station frequency [MHz], otherwise leave `0`
   - ADSB_MAX_ALT_FT=**18000** <--- ADSB max OGN feed altitude [ft]
   - METAR_SOURCE_ICAO=**ETHN** <--- enter the closest airport with METAR
   - APRS_SUBSCRIBE_FILTER=**r/50.0/10.0/100** <--- circle in [km] for which you want to receive traffic from the OGN APSR servers

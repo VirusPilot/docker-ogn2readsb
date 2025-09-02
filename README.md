@@ -51,3 +51,10 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 ### monitor OGN details
 - `http://yourRaspberryPi.local:8080`
 - `http://yourRaspberryPi.local:8081`
+
+### monitor docker containers
+- `docker logs -f rtlsdr-ogn`
+- `docker logs -f mlat-client-adsbx`
+- `docker logs -f readsb`
+- `docker logs -f ogn2dump1090`
+- `docker logs -f tar1090`

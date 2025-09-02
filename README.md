@@ -41,5 +41,10 @@ Debian-based Linux Operating Systems (Bookworm or newer)
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
+### apply configuration changes
+- `cd docker-ogn2readsb`
+- `nano config.vars`
+- `docker compose up --detach --build`
+
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourRaspberryPi.local/tar1090`

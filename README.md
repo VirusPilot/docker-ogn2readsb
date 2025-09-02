@@ -48,3 +48,7 @@ Debian-based Linux Operating Systems (Bookworm or newer)
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourRaspberryPi.local/tar1090`
+
+### monitor OGN details
+- `http://yourRaspberryPi.local:8080`
+- `http://yourRaspberryPi.local:8081`

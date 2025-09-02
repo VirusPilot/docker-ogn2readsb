@@ -1,10 +1,10 @@
 ### docker version of https://github.com/b3nn0/ogn2dump1090
 
 ### supported operating systems
-Debian-based Linux Operating Systems like
+Debian-based Linux Operating Systems (Bookworm or newer)
 - Ubuntu
 - DietPi
-- RaspiOS (Buster, Bullseye and Bookworm)
+- RaspiOS
 
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)

@@ -12,10 +12,12 @@ Debian-based Linux Operating Systems (Bookworm or newer)
 - WIP: armhf (32-bit ARM CPUs with hardware floating point processor)
 
 ### prepare
+- identify both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
 - `sudo apt update && sudo apt install git`
 - `git clone https://github.com/VirusPilot/docker-ogn2readsb`
-- `cd docker-ogn2readsb`
+- `cd docker-ogn2readsb``
 - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo usermod -aG docker $USER && newgrp docker`
 
 ### configuration
@@ -36,6 +38,7 @@ Debian-based Linux Operating Systems (Bookworm or newer)
 
 ### build
 - `docker compose up --detach --build`
+- you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance

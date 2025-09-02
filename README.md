@@ -58,3 +58,13 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 - `docker logs -f readsb`
 - `docker logs -f ogn2dump1090`
 - `docker logs -f tar1090`
+
+### useful docker commands
+- `docker ps -a` list all docker containers, including stopped ones
+- `docker stop <container_name_or_id>` stop a running container
+- `docker rm <container_name_or_id>` delete a stopped container
+- `docker container prune` delete all stopped containers
+- `docker image ls` list docker images
+- `docker rmi <image_id_or_name>` delete docker image
+- `docker image prune` delete all docker images
+- `docker system prune -a --volumes` clean your docker environment

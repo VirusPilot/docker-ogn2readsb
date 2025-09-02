@@ -1,7 +1,7 @@
 ### docker version of https://github.com/b3nn0/ogn2dump1090
 
 ### supported operating systems
-Debian-based Linux Operating Systems (Bookworm or newer)
+Debian-based Linux Operating Systems (64bit Bookworm or newer)
 - Ubuntu
 - DietPi
 - RaspiOS
@@ -9,7 +9,6 @@ Debian-based Linux Operating Systems (Bookworm or newer)
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - amd64 (64-bit Intel CPUs)
-- WIP: armhf (32-bit ARM CPUs with hardware floating point processor)
 
 ### prepare
 - identify both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below

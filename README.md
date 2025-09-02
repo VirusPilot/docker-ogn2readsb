@@ -8,7 +8,7 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
-- amd64 (64-bit Intel CPUs)
+- x64 (64-bit AMD/Intel CPUs)
 
 ### prepare
 - identify both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below

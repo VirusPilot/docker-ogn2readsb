@@ -31,11 +31,11 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 | STATION_LON | 10.0 | your station longitude |
 | STATION_ALT_MSL_M | 300 | your sattion altitude AMSL [m] |
 | STATION_NAME | OGNTEST | your max. 9 letter station name, please comply with [naming convention](http://wiki.glidernet.org/receiver-naming-convention) |
-| OGN_CENTER_FREQ | 868.8 | default frequency [MHz] for **Europe**, don't change unless you know what you are doing |
+| OGN_CENTER_FREQ | 868.8 | center frequency [MHz] for **Europe**, don't change unless you know what you are doing |
 | GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
 | METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |
-| APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers) |
+| APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers |
 | SDR_868_SERIAL | 868 | enter your OGN SDR serial |
 | SDR_868_PPM | 0 | change only if you know your SDR's ppm |
 | SDR_1090_SERIAL | 1090 | enter your ADSB SDR serial |

@@ -27,11 +27,11 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 
 | variable | example | description |
 | :--- | :--- | :--- |
-| STATION_LAT | 50.0 | your station latitude |
-| STATION_LON | 10.0 | your station longitude |
-| STATION_ALT_MSL_M | 300 | your sattion altitude AMSL [m] |
+| STATION_LAT | 50.0 | your station latitude [deg] (as positive or negative decimal number)|
+| STATION_LON | 10.0 | your station longitude [deg] (as positive or negative decimal number)|
+| STATION_ALT_MSL_M | 300 | your station altitude AMSL [m] |
 | STATION_NAME | OGNTEST | your max. 9 letter station name, please comply with [naming convention](http://wiki.glidernet.org/receiver-naming-convention) |
-| FREQ_PLAN | 1 | 1=Europe/Africa (default), 2=USA/Canada, 3=South America/Australia, 4=New Zeeland |
+| FREQ_PLAN | 1 | 1=EU/Africa (default), 2=USA/Canada, 3=South America/Australia, 4=New Zeeland, 5=Israel, 6=EU/Africa 433MHz |
 | GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
 | METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |

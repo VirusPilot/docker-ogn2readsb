@@ -1,4 +1,4 @@
-### docker version of https://github.com/b3nn0/ogn2dump1090
+### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
 Debian-based Linux Operating Systems (64bit Bookworm or newer)

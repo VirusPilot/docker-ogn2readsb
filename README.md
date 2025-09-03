@@ -21,18 +21,18 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 
 ### configuration
 - `nano config.vars`
-  - STATION_LAT=**50.0** <--- enter your station latitude
-  - STATION_LON=**10.0** <--- enter your station longitude
-  - STATION_ALT_MSL_M=**300** <--- enter your sattion altitude AMSL [m]
-  - STATION_NAME=**OGNTEST** <--- enter your station name, please refer to http://wiki.glidernet.org/receiver-naming-convention
+  - STATION_LAT=**50.0** <--- **mandatory** enter your station latitude
+  - STATION_LON=**10.0** <--- **mandatory** enter your station longitude
+  - STATION_ALT_MSL_M=**300** <--- **mandatory** enter your sattion altitude AMSL [m]
+  - STATION_NAME=**<.........>** <--- **mandatory** enter your max. 9 letter station name, please refer to http://wiki.glidernet.org/receiver-naming-convention
   - OGN_CENTER_FREQ=**868.8** <--- don't change unless you know what you are doing
-  - GSM_CENTER_FREQ=**0** <--- optional: enter your closest GSM station frequency [MHz], otherwise leave `0`
+  - GSM_CENTER_FREQ=**0** <--- change only if you know your closest GSM station frequency [MHz], otherwise leave `0`
   - ADSB_MAX_ALT_FT=**18000** <--- ADSB max OGN feed altitude [ft]
-  - METAR_SOURCE_ICAO=**ETHN** <--- enter the closest airport with METAR
-  - APRS_SUBSCRIBE_FILTER=**r/50.0/10.0/100** <--- circle in [km] for which you want to receive traffic from the OGN APSR servers
-  - SDR_868_SERIAL=**868** <--- enter your OGN SDR serial
+  - METAR_SOURCE_ICAO=**<....>** <--- **mandatory** 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service
+  - APRS_SUBSCRIBE_FILTER=<r/LAT/LON/CIRCLE> <--- **mandatory** circle in [km] around a defined postion for which you want to receive traffic from the OGN APRS servers (e.g. "r/50.0/10.0/100")
+  - SDR_868_SERIAL=**868** <--- **mandatory** enter your OGN SDR serial
   - SDR_868_PPM=**0** <--- change only if you know your SDR's ppm
-  - SDR_1090_SERIAL=**1090** <--- enter your ADSB SDR serial
+  - SDR_1090_SERIAL=**1090** <--- **mandatory** enter your ADSB SDR serial
   - SDR_1090_PPM=**0** <--- change only if you know your SDR's ppm
 
 ### build

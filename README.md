@@ -31,7 +31,7 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 | STATION_LON | 10.0 | your station longitude |
 | STATION_ALT_MSL_M | 300 | your sattion altitude AMSL [m] |
 | STATION_NAME | OGNTEST | your max. 9 letter station name, please comply with [naming convention](http://wiki.glidernet.org/receiver-naming-convention) |
-| OGN_CENTER_FREQ | 868.8 | center frequency [MHz] for **Europe**, don't change unless you know what you are doing |
+| FREQ_PLAN | 1 | 1=Europe/Africa (default), 2=USA/Canada, 3=South America/Australia, 4=New Zeeland |
 | GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
 | METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |

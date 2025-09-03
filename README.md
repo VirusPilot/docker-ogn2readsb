@@ -31,8 +31,8 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 | STATION_LON | 10.0 | your station longitude |
 | STATION_ALT_MSL_M | 300 | your sattion altitude AMSL [m] |
 | STATION_NAME | OGNTEST | your max. 9 letter station name, please comply with [naming convention](http://wiki.glidernet.org/receiver-naming-convention) |
-| OGN_CENTER_FREQ | 868.8 | default for **Europe**, don't change unless you know what you are doing |
-| GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM station frequency [MHz] |
+| OGN_CENTER_FREQ | 868.8 | default frequency [MHz] for **Europe**, don't change unless you know what you are doing |
+| GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
 | METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |
 | APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers) |
@@ -47,7 +47,7 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 - `sudo reboot`
 
 ### apply configuration changes
-- `cd docker-ogn2readsb`
+- `cd ./docker-ogn2readsb`
 - `nano config.vars`
 - `docker compose up --detach --build`
 
@@ -68,8 +68,8 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 ### useful docker commands
 - `docker ps -a` list all docker containers, including stopped ones
 - `docker stop <container_name_or_id>` stop a running container
-- `docker rm <container_name_or_id>` delete a stopped container
-- `docker container prune` delete all stopped containers
+- `docker rm <container_name_or_id>` deactivate a stopped container
+- `docker container prune` deactivate all stopped containers
 - `docker image ls` list docker images
 - `docker rmi <image_id_or_name>` delete docker image
 - `docker image prune` delete all docker images

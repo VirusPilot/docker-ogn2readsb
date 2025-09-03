@@ -52,11 +52,11 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 - `docker compose up --detach --build`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
-- `http://yourRaspberryPi.local/tar1090`
+- `http://yourReceiverIP.local/tar1090`
 
 ### monitor OGN details
-- `http://yourRaspberryPi.local:8080`
-- `http://yourRaspberryPi.local:8081`
+- `http://yourReceiverIP.local:8080`
+- `http://yourReceiverIP.local:8081`
 
 ### monitor docker containers
 - `docker logs -f rtlsdr-ogn`

@@ -50,6 +50,7 @@ Debian-based Linux Operating Systems (64bit Bookworm or newer)
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
 - `docker compose up --detach --build`
+- `docker compose up --detach --build --force-recreate` (Recreate containers even if their configuration and image haven't changed)
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourReceiverIP.local/tar1090`

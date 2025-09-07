@@ -57,8 +57,8 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - `http://yourReceiverIP.local/tar1090`
 
 ### monitor OGN details
-- `http://yourReceiverIP.local:8080`
-- `http://yourReceiverIP.local:8081`
+- `http://yourReceiverIP:8080`
+- `http://yourReceiverIP:8081`
 
 ### monitor docker containers
 - `docker logs -f rtlsdr-ogn`

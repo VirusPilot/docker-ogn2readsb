@@ -76,3 +76,4 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - `docker rmi <image_id_or_name>` delete docker image
 - `docker image prune` delete all docker images
 - `docker system prune -a --volumes` clean your docker environment
+- `docker exec -it <yourDockerContainer> bash` open a shell inside your container

@@ -34,6 +34,7 @@ services:
       - 80:80
     volumes:
       - /tmp/readsb:/tmp/readsb
+      - /tmp/tar1090:/run/tar1090
   rtlsdr-ogn:
     build: rtlsdr-ogn
     container_name: rtlsdr-ogn

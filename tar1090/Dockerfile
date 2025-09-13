@@ -18,4 +18,6 @@ RUN cd /usr/local/share/tar1090/html && \
     echo 'jaeroTimeout = 60;' >> config.js && \
     echo 'jaeroLabel = "OGN";' >> config.js
 
-CMD ["nginx", "-g", "daemon off;"]
+ADD startup.sh startup.sh
+
+CMD ["/bin/bash", "/app/startup.sh"]

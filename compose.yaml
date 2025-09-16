@@ -13,7 +13,10 @@ services:
       # Apparently, jaero-sbs takes priority over mlat, while normal sbs doesn't, so we use that
       - NET_OPTIONS=--net --net-heartbeat 60 --net-ro-size 1250 --net-ro-interval 0.05 --net-ri-port 30001 --net-ro-port 30002 --net-sbs-port 30003 --net-bi-port 30004,30104 --net-bo-port 30005 --net-sbs-jaero-in-port 30008 --jaero-timeout 1 --forward-mlat
       - JSON_OPTIONS=--json-location-accuracy 2 --range-outline-hours 24 --write-json /tmp/readsb --quiet
-      #- FEEDING_OPTIONS=--net-connector feed1.adsbexchange.com,30004,beast_reduce_out,feed2.adsbexchange.com,64004,uuid=xxx --net-connector feed.airplanes.live,30004,beast_reduce_plus_out,feed.airplanes.live,64004,uuid=xxx --net-connector feed.adsb.lol,30004,beast_reduce_plus_out,in.adsb.lol,1337,uuid=xxx
+      - FEEDER_1=--net-connector feed1.adsbexchange.com,30004,beast_reduce_out
+      - FEEDER_2=--net-connector feed.airplanes.live,30004,beast_reduce_out
+      - FEEDER_3=--net-connector in.adsb.lol,30004,beast_reduce_out
+      - FEEDER_4=--net-connector feed.adsb.fi,30004,beast_reduce_out
     volumes:
       - /tmp:/tmp
   mlat-client-adsbx:
@@ -25,7 +28,6 @@ services:
       - MLATSERVER=feed.adsbexchange.com:31090
       - BEAST_OUT_HOST=readsb:30005
       - BEAST_IN_HOST=readsb:30004
-      #- UUID=xxx
   tar1090:
     build: tar1090
     container_name: tar1090
@@ -58,3 +60,59 @@ services:
       - OGN_DECODE_TELNET_PORT=50001
       - SBS_DESTINATION_HOST=readsb
       - SBS_DESTINATION_PORT=30008
+
+  fr24feed:
+    image: ghcr.io/sdr-enthusiasts/docker-flightradar24:latest
+    container_name: fr24feed
+    restart: unless-stopped
+    ports:
+      - 8754:8754
+    env_file: config.vars
+    environment:
+      - BEASTHOST=readsb
+      - FR24KEY=
+      - MLAT=no   # not with --forward-mlat
+    dns_search: . # prevents rare connection issues related to a bug in docker and fr24feed
+
+  piaware:
+    image: ghcr.io/sdr-enthusiasts/docker-piaware:latest
+    container_name: piaware
+    restart: unless-stopped
+    env_file: config.vars
+    environment:
+      - TZ="Europe/Berlin"
+      - FEEDER_ID=
+      - RECEIVER_TYPE=relay
+      - BEASTHOST=readsb
+      - BEASTPORT=30005
+      - MLAT_RESULTS_BEASTHOST=readsb
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log
+
+  airnavradar:
+    image: ghcr.io/sdr-enthusiasts/docker-airnavradar:latest
+    container_name: airnavradar
+    restart: unless-stopped
+    env_file: config.vars
+    environment:
+      - TZ=Europe/Berlin
+      - BEASTHOST=readsb
+      - LAT=
+      - LONG=
+      - ALT=
+      - SHARING_KEY=
+
+  opensky:
+    image: ghcr.io/sdr-enthusiasts/docker-opensky-network:latest
+    container_name: opensky
+    restart: unless-stopped
+    env_file: config.vars
+    environment:
+      - TZ=Europe/Berlin
+      - BEASTHOST=readsb
+      - LAT=
+      - LONG=
+      - ALT=
+      - OPENSKY_USERNAME=
+      - OPENSKY_SERIAL=

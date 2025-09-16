@@ -15,4 +15,4 @@ RUN \
     cp readsb /usr/local/bin && \
     rm -r /app/readsb
 
-CMD ["bash", "-c", "readsb --lat ${STATION_LAT} --lon ${STATION_LON} ${RECEIVER_OPTIONS} --device ${SDR_1090_SERIAL} --ppm ${SDR_1090_PPM} ${DECODER_OPTIONS} ${NET_OPTIONS} ${JSON_OPTIONS} ${FEEDING_OPTIONS}"]
+CMD ["bash", "-c", "readsb --lat ${STATION_LAT} --lon ${STATION_LON} ${RECEIVER_OPTIONS} --device ${SDR_1090_SERIAL} --ppm ${SDR_1090_PPM} ${DECODER_OPTIONS} ${NET_OPTIONS} ${JSON_OPTIONS} ${FEEDER_1} ${FEEDER_2} ${FEEDER_3} ${FEEDER_4}"]

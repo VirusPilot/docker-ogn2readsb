@@ -66,6 +66,10 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourReceiverIP.local/tar1090`
 
+### enable DE and AT traffic patterns
+- quick hack for now: enable "UK Radar Corridors":
+<img width="510" height="346" alt="DE AT Traffic Patterns" src="https://github.com/user-attachments/assets/a9db25d0-0659-48ce-99eb-3277e88ea54e" />
+
 ### monitor OGN details
 - `http://yourReceiverIP:8080`
 - `http://yourReceiverIP:8081`

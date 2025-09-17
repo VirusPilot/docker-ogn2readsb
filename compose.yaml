@@ -116,3 +116,17 @@ services:
       - ALT=
       - OPENSKY_USERNAME=
       - OPENSKY_SERIAL=
+
+  pfclient:
+    image: ghcr.io/sdr-enthusiasts/docker-planefinder:latest
+    container_name: pfclient
+    restart: always
+    ports:
+      - 30053:30053
+    env_file: config.vars
+    environment:
+      - TZ=Europe/Berlin
+      - BEASTHOST=readsb
+      - LAT=
+      - LONG=
+      - SHARECODE=

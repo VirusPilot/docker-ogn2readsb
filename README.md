@@ -42,16 +42,26 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 | SDR_1090_SERIAL | 1090 | enter your ADSB SDR serial |
 | SDR_1090_PPM | 0 | change only if you know your SDR's ppm |
 
-### build
+### build (without multiple feeders)
+- `cd ./docker-ogn2readsb`
 - `docker compose up --detach --build`
+- you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
+- `sudo reboot`
+
+### ADVANCED build (with multiple feeders included)
+- `cd ./docker-ogn2readsb`
+- `nano compose-multifeed.yaml`
+  - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)
+  - delete (or comment out) unused/unwanted feeder entries
+- `docker compose --file compose-multifeed.yaml up --detach --build`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
-- `docker compose up --detach --build`
-- `docker compose up --detach --build --force-recreate` (Recreate containers even if their configuration and image haven't changed)
+- `docker compose up --detach --build` or `docker compose --file compose-multifeed.yaml up --detach --build`
+- `docker compose up --detach --build --force-recreate` or `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourReceiverIP.local/tar1090`

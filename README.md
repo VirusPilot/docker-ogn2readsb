@@ -88,11 +88,16 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 
 ### useful docker commands
 - `docker ps -a` list all docker containers, including stopped ones
-- `docker stop <container_name_or_id>` stop a running container
-- `docker rm <container_name_or_id>` deactivate a stopped container
-- `docker container prune` deactivate all stopped containers
-- `docker image ls` list docker images
-- `docker rmi <image_id_or_name>` delete docker image
-- `docker image prune` delete all docker images
-- `docker system prune -a` clean your docker environment
-- `docker exec -it <yourDockerContainer> bash` open a shell inside your container
+- stop and deactivate containers
+  - `docker stop <container_name_or_id>` stop a running container
+  - `docker rm <container_name_or_id>` deactivate a stopped container
+  - `docker container prune` deactivate all stopped containers
+- list and delete docker images
+  - `docker image ls` list docker images
+  - `docker rmi <image_id_or_name>` delete docker image
+  - `docker image prune` delete all docker images
+- clean your entire docker environment e.g. for a fresh `docker compose`
+  - `docker rm -f $(docker ps -aq)` force remove ALL containers
+  - `docker system prune -af --volumes` clean your docker environment
+- open a shell inside your container
+  - `docker exec -it <yourDockerContainer> bash`

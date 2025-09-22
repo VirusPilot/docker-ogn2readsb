@@ -101,7 +101,10 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - stop and deactivate containers
   - `docker stop <container_name_or_id>` stop a running container
   - `docker rm <container_name_or_id>` deactivate a stopped container
-  - `docker container prune` deactivate all stopped containers
+  - `docker container prune` remove all stopped containers
+  - `docker compose down` stop and remove containers, networks
+  - `docker compose up --detach` create and start containers
+  - `docker compose up --detach --build` build, create and start containers
 - list and delete docker images
   - `docker image ls` list docker images
   - `docker rmi <image_id_or_name>` delete docker image

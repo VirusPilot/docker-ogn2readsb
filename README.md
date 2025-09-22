@@ -57,6 +57,11 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
+### option to merge inconsistent address type transmissions
+- `cd ./docker-ogn2readsb`
+- `nano tar1090/Dockerfile`
+-  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
+
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
@@ -89,5 +94,5 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - `docker image ls` list docker images
 - `docker rmi <image_id_or_name>` delete docker image
 - `docker image prune` delete all docker images
-- `docker system prune -a --volumes` clean your docker environment
+- `docker system prune -a` clean your docker environment
 - `docker exec -it <yourDockerContainer> bash` open a shell inside your container

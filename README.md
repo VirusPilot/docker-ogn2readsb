@@ -11,14 +11,24 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - x64 (64-bit AMD/Intel CPUs)
 
-### prepare
-- identify both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
+### prepare system
 - `sudo apt update && sudo apt install git`
-- `git clone https://github.com/VirusPilot/docker-ogn2readsb`
-- `cd docker-ogn2readsb`
+- you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
+
+### prepare docker
 - `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo usermod -aG docker $USER && newgrp docker`
+
+### prepare SDRs
+- identify or set both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
+- unplug all SDRs, leaving only the SDR to be used for 1090 MHz reception plugged in, then issue the following command:
+  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 1090`
+- unplug all SDRs, leaving only the SDR to be used for 868 MHz reception plugged in, then issue the following command:
+  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 868` 
+
+### prepare ogn2readsb
+- `git clone https://github.com/VirusPilot/docker-ogn2readsb`
 
 ### configuration
 - `cd ./docker-ogn2readsb`

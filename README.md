@@ -42,6 +42,11 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 | SDR_1090_SERIAL | 1090 | enter your ADSB SDR serial |
 | SDR_1090_PPM | 0 | change only if you know your SDR's ppm |
 
+### option to merge inconsistent address type transmissions
+- `cd ./docker-ogn2readsb`
+- `nano tar1090/Dockerfile`
+-  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
+
 ### build (without multiple feeders)
 - `cd ./docker-ogn2readsb`
 - `docker compose up --detach --build`
@@ -56,11 +61,6 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - `docker compose --file compose-multifeed.yaml up --detach --build`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
-
-### option to merge inconsistent address type transmissions
-- `cd ./docker-ogn2readsb`
-- `nano tar1090/Dockerfile`
--  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
 
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`

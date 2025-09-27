@@ -12,9 +12,9 @@ ADD https://github.com/wiedehopf/tar1090/raw/master/install.sh install.sh
 
 RUN chmod +x install.sh && ./install.sh /tmp/readsb
 
-RUN wget -O Platzrunden_5.25.1.kml "https://www.dropbox.com/scl/fo/4t4x4y4ip8pujkpcea89t/ACKrMvNdW6InwtuL9dJLDh0/Platzrunden%2BSegler_5.25.1.kml?rlkey=h47rcbgi0qfuojjtgdhnfq21g&dl=1"
+RUN wget -O Platzrunden_5.25.2.1.kml "https://www.dropbox.com/scl/fo/4t4x4y4ip8pujkpcea89t/AHbirJYp0wD7qZe1jLjLbDE/Platzrunden%2BSegler_5.25.2.1.kml?rlkey=h47rcbgi0qfuojjtgdhnfq21g&dl=0"
 
-RUN ogr2ogr -f "GeoJSON" UK_Mil_RC.geojson Platzrunden_5.25.1.kml
+RUN ogr2ogr -f "GeoJSON" UK_Mil_RC.geojson Platzrunden_5.25.2.1.kml
 
 RUN cp -f UK_Mil_RC.geojson /usr/local/share/tar1090/html/geojson/
 

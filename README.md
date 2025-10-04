@@ -16,9 +16,11 @@ Debian or Debian-based Linux Operating Systems (64bit trixie or newer):
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 
 ### prepare docker
-- `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- `wget -q https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh && chmod +x docker-install.sh`
+- `nano docker-install.sh` and remove/disable lines #33 and #41 (software-properties-common, netcat)
+- `./docker-install.sh`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
-- `sudo usermod -aG docker $USER && newgrp docker`
+- `sudo reboot`
 
 ### prepare SDRs
 - identify or set both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
@@ -28,7 +30,7 @@ Debian or Debian-based Linux Operating Systems (64bit trixie or newer):
   - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 868` 
 
 ### prepare ogn2readsb
-- `git clone https://github.com/VirusPilot/docker-ogn2readsb`
+- `git clone --branch trixie https://github.com/VirusPilot/docker-ogn2readsb`
 
 ### configuration
 - `cd ./docker-ogn2readsb`

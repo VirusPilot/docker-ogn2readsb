@@ -1,7 +1,7 @@
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
-Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
+Debian or Debian-based Linux Operating Systems (64bit trixie or newer):
 - Debian
 - Ubuntu
 - DietPi
@@ -49,8 +49,10 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 | APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers |
 | SDR_868_SERIAL | 868 | enter your OGN SDR serial |
 | SDR_868_PPM | 0 | change only if you know your SDR's ppm |
+| SDR_868_BIAS_T_ENABLE | 0 | enable Bias Tee ony your SDR, e.g. to power a LNA |
 | SDR_1090_SERIAL | 1090 | enter your ADSB SDR serial |
 | SDR_1090_PPM | 0 | change only if you know your SDR's ppm |
+| SDR_1090_BIAS_T_ENABLE | 0 | enable Bias Tee ony your SDR, e.g. to power a LNA |
 
 ### option to merge inconsistent address type transmissions
 - `cd ./docker-ogn2readsb`

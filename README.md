@@ -1,7 +1,10 @@
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
+
+### NEW: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
+
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
-Debian or Debian-based Linux Operating Systems (64bit trixie or newer):
+Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer):
 - Debian
 - Ubuntu
 - DietPi

@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:trixie
 WORKDIR /app
 
 RUN apt update && apt install --yes git python3-pip wget gettext-base  python3-aiohttp

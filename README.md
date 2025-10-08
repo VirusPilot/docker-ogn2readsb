@@ -1,7 +1,10 @@
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
+
+### NEW: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
+
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
-Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
+Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer):
 - Debian
 - Ubuntu
 - DietPi
@@ -16,9 +19,11 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 
 ### prepare docker
-- `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
+- `wget -q https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh && chmod +x docker-install.sh`
+- `nano docker-install.sh` and remove/disable lines #33 and #41 (software-properties-common, netcat)
+- `./docker-install.sh`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
-- `sudo usermod -aG docker $USER && newgrp docker`
+- `sudo reboot`
 
 ### prepare SDRs
 - identify or set both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
@@ -28,7 +33,7 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
   - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 868` 
 
 ### prepare ogn2readsb
-- `git clone https://github.com/VirusPilot/docker-ogn2readsb`
+- `git clone --branch trixie https://github.com/VirusPilot/docker-ogn2readsb`
 
 ### configuration
 - `cd ./docker-ogn2readsb`
@@ -49,8 +54,10 @@ Debian or Debian-based Linux Operating Systems (64bit Bookworm or newer):
 | APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers |
 | SDR_868_SERIAL | 868 | enter your OGN SDR serial |
 | SDR_868_PPM | 0 | change only if you know your SDR's ppm |
+| SDR_868_BIAS_T_ENABLE | 0 | set to 1 to enable Bias Tee on your SDR, e.g. to power a LNA |
 | SDR_1090_SERIAL | 1090 | enter your ADSB SDR serial |
 | SDR_1090_PPM | 0 | change only if you know your SDR's ppm |
+| SDR_1090_BIAS_T_ENABLE | 0 | set to 1 to enable Bias Tee on your SDR, e.g. to power a LNA |
 
 ### option to merge inconsistent address type transmissions
 - `cd ./docker-ogn2readsb`

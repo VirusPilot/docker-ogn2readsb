@@ -1,6 +1,23 @@
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
-
-### NEW: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
+consisting of the following components:
+- [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)
+  - simple Python tool to inject Open Glider Network Traffic (from an existing local OGN decoder instance) into an existing readsb ADS-B decoder instance for display on a unified tar1090 map
+  - furthermore online aggregated traffic from `aprs.glidernet.org` can optionally be injected for a reasonably selected radius around a given location
+  - OGN traffic will be displayed as other traffic alongside with ADS-B traffic, using the readsb tar1090 webinterface (e.g. http://yourRaspberryPi.local/tar1090/)
+- [rtlsdr-ogn](https://github.com/VirusPilot/ogn-pi34) (feeding glidernet.org with OGN traffic)
+- [readsb](https://github.com/wiedehopf/readsb) (feeding glidernet.org with ADS-B traffic and decoding/forwarding traffic to the tar1090 map)
+- [mlat-client-adsbx](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsbexchange.com)
+- [tar1090](https://github.com/wiedehopf/tar1090) (traffic map)
+- optional feeds:
+  - adsbexchange.com
+  - airplanes.live
+  - adsb.lol
+  - adsb.fi
+  - planefinder.net
+  - flightradar24.com
+  - airnavradar.com
+  - flightaware.com
+  - opensky-network.org
 
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
@@ -13,6 +30,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - x64 (64-bit AMD/Intel CPUs)
+- SDRs: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
 
 ### prepare system
 - `sudo apt update && sudo apt install git`

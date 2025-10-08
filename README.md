@@ -33,7 +33,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
   - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 868` 
 
 ### prepare ogn2readsb
-- `git clone --branch trixie https://github.com/VirusPilot/docker-ogn2readsb`
+- `git clone https://github.com/VirusPilot/docker-ogn2readsb`
 
 ### configuration
 - `cd ./docker-ogn2readsb`
@@ -64,13 +64,13 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano tar1090/Dockerfile`
 -  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
 
-### build (without multiple feeders)
+### build (only feeding glidernet)
 - `cd ./docker-ogn2readsb`
 - `docker compose up --detach --build`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
-### ADVANCED build (with multiple feeders included)
+### ADVANCED build (with addidtional feeders)
 - `cd ./docker-ogn2readsb`
 - `nano compose-multifeed.yaml`
   - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)

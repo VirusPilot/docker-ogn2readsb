@@ -130,10 +130,12 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
   - `docker compose down` stop and remove containers, networks
   - `docker compose up --detach` create and start containers
   - `docker compose up --detach --build` build, create and start containers
-- list and delete docker images
+- list and delete unused docker images
   - `docker image ls` list docker images
-  - `docker rmi <image_id_or_name>` delete docker image
-  - `docker image prune` delete all docker images
+  - `docker rmi <image_id_or_name>` delete unused docker image
+  - `docker image prune` delete all unused docker images
+- remove unused data e.g. to save space
+  - `docker system prune`
 - clean your entire docker environment e.g. for a fresh `docker compose`
   - `docker rm -f $(docker ps -aq)` force remove ALL containers
   - `docker system prune -af --volumes` clean your docker environment

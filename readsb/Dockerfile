@@ -11,7 +11,7 @@ ADD https://api.github.com/repos/wiedehopf/readsb/git/refs/heads/dev version.txt
 RUN \
     git clone https://github.com/wiedehopf/readsb.git && \
     cd readsb && \
-    make -j8 RTLSDR=yes && \
+    make -j$(nproc) RTLSDR=yes && \
     cp readsb /usr/local/bin && \
     rm -r /app/readsb
 

@@ -1,8 +1,8 @@
-FROM debian:trixie
+FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && \
-    apt -y install chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv
+RUN apt update && apt install --yes \
+    chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv
 
 RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \
         wget "http://download.glidernet.org/x64/rtlsdr-ogn-bin-x64-latest.tgz"; \

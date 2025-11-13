@@ -1,10 +1,8 @@
-FROM debian:trixie
+FROM debian:trixie-slim
 WORKDIR /app
 
-RUN \
-    apt update && \
-    apt install --yes \
-        nginx curl
+RUN apt update && apt install --yes \
+    nginx curl
 
 ADD https://api.github.com/repos/wiedehopf/tar1090/git/refs/heads/master version.txt
 

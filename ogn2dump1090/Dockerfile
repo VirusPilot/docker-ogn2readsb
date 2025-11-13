@@ -1,7 +1,9 @@
-FROM debian:trixie
+FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && apt install --yes git python3-pip wget gettext-base  python3-aiohttp
+RUN apt update && apt install --yes \
+    git python3-pip wget gettext-base  python3-aiohttp
+
 RUN pip install --break-system-packages ogn-client
 
 ADD https://api.github.com/repos/b3nn0/ogn2dump1090/git/refs/heads/master version.txt

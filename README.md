@@ -32,14 +32,9 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - x64 (64-bit AMD/Intel CPUs)
 - SDRs: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
 
-### prepare system
-- `sudo apt update && sudo apt install git`
-- you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
-
-### prepare docker
-- `wget -q https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh && chmod +x docker-install.sh`
-- `nano docker-install.sh` and remove/disable lines #33 and #41 (software-properties-common, netcat)
-- `./docker-install.sh`
+### prepare system and docker
+- `sudo apt update && sudo apt install --yes git wget`
+- `bash <(wget -q -O - https://raw.githubusercontent.com/VirusPilot/docker-install/main/docker-install.sh)`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 

@@ -1,3 +1,12 @@
+### NOTE: upgrading from an earlier version
+if you are upgrading from an earlier version, particularly in case the `config.vars` template has changed, you need to perform the following steps:
+- note down your existing `config.vars` variable entries
+- `git checkout config.vars`
+- `git pull`
+- re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
+- `docker compose --detach --build` (without optional feeds) or
+- `docker compose --file compose-multifeed.yaml up --detach --build` (with optional feeds)
+
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)

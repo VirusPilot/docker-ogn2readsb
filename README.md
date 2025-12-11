@@ -77,7 +77,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 | STATION_COMMENT_EMAIL |  | optional station email contact| 
 | STATION_COMMENT_WEBSITE |  | optional station website | 
 | STATION_COMMENT_NOTE |  | optional notes about your station | 
-| FREQ_PLAN | 1 | 1=EU/Africa (default), 2=USA/Canada, 3=South America/Australia, 4=New Zeeland, 5=Israel, 6=EU/Africa 433MHz |
+| FREQ_PLAN | 1 | 1=EU/Africa (default), 2=USA/Canada, 3=South America/Australia, 4=New Zealand, 5=Israel, 6=EU/Africa 433MHz |
 | GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
 | METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |

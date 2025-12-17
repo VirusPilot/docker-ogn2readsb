@@ -1,7 +1,7 @@
 FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && apt install --yes \
+RUN apt-get update && apt-get install --yes \
     git python3-pip wget gettext-base  python3-aiohttp
 
 RUN pip install --break-system-packages ogn-client

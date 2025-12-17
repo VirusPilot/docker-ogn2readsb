@@ -1,7 +1,7 @@
 FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && apt install --yes \
+RUN apt-get update && apt-get install --yes \
     chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv
 
 RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \

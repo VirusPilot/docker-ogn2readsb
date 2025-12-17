@@ -1,7 +1,7 @@
 FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && apt install --yes \
+RUN apt-get update && apt-get install --yes \
     git python3-venv python3-setuptools python3-pip python3-dev build-essential moreutils
 
 RUN pip install --break-system-packages pyasyncore

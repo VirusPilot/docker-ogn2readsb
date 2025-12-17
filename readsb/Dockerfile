@@ -1,7 +1,7 @@
 FROM debian:trixie-slim
 WORKDIR /app
 
-RUN apt update && apt install --yes \
+RUN apt-get update && apt-get install --yes \
     git librtlsdr-dev librtlsdr0 rtl-sdr build-essential libusb-1.0-0-dev pkg-config libncurses-dev zlib1g-dev zlib1g libzstd-dev libzstd1 ca-certificates
 
 ADD https://api.github.com/repos/wiedehopf/readsb/git/refs/heads/dev version.txt

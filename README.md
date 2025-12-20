@@ -112,8 +112,13 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
-- `docker compose up --detach --build` or `docker compose --file compose-multifeed.yaml up --detach --build`
-- `docker compose up --detach --build --force-recreate` or `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
+- standard build
+  - `docker compose up --detach --build` or
+  - `docker compose --file compose-multifeed.yaml up --detach --build`
+- build with `--force-recreate`
+  - `docker compose up --detach --build --force-recreate` or
+  - `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
+- if you are building an update over an ssh shell that may lose its connection, please consider using `nohup <your command> &`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourReceiverIP.local/tar1090`

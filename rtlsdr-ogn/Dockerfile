@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install --yes \
 RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \
         wget "http://download.glidernet.org/x64/rtlsdr-ogn-bin-x64-latest.tgz"; \
     else \
-        wget "http://download.glidernet.org/arm64/rtlsdr-ogn-bin-arm64-latest.tgz"; \
+        wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-arm64-0.3.3_Trixie.tgz"; \
     fi'
 
 RUN tar xzf rtlsdr-ogn-*.tgz && \

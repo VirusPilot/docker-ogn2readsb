@@ -10,8 +10,8 @@ ADD https://github.com/wiedehopf/tar1090/raw/master/install.sh install.sh
 
 RUN chmod +x install.sh && ./install.sh /tmp/readsb
 
-COPY Platzrunden+Segler_N_5.25.4.geojson /app/
-RUN cp -f Platzrunden+Segler_N_5.25.4.geojson /usr/local/share/tar1090/html/geojson/UK_Mil_RC.geojson
+COPY Platzrunden+Segler_N_5.25.5.geojson /app/
+RUN cp -f Platzrunden+Segler_N_5.25.5.geojson /usr/local/share/tar1090/html/geojson/UK_Mil_RC.geojson
 
 COPY etc_nginx_sites-enabled_default /app/
 RUN cp -f etc_nginx_sites-enabled_default /etc/nginx/sites-enabled/default

@@ -6,7 +6,7 @@ if you are upgrading from an earlier version, particularly in case the `config.v
 - re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
 - `docker compose up --detach --build` (without optional feeds) or
 - `docker compose up --file compose-multifeed.yaml up --detach --build` (with optional feeds)
-
+---
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)
@@ -35,7 +35,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - Ubuntu
 - DietPi
 - RaspiOS
-
+---
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - x64 (64-bit AMD/Intel CPUs)
@@ -94,18 +94,18 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano tar1090/Dockerfile`
 -  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
 
-### build (only feeding glidernet)
+### standard build (only feeding glidernet)
 - `cd ./docker-ogn2readsb`
-- `docker compose up --detach --build`
+- `docker compose up --detach --build --force-recreate`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
-
-### ADVANCED build (with addidtional feeders)
+---
+### advanced build (with addidtional feeders)
 - `cd ./docker-ogn2readsb`
 - `nano compose-multifeed.yaml`
   - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)
   - delete (or comment out) unused/unwanted feeder entries
-- `docker compose --file compose-multifeed.yaml up --detach --build`
+- `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
@@ -113,11 +113,9 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
 - standard build
-  - `docker compose up --detach --build` or
-  - `docker compose --file compose-multifeed.yaml up --detach --build`
-- build with `--force-recreate`
-  - `docker compose up --detach --build --force-recreate` or
-  - `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
+  - `docker compose up --detach --force-recreate` or
+- advanced build
+  - `docker compose --file compose-multifeed.yaml up --detach --force-recreate`
 - if you are building an update over an ssh shell that may lose its connection, please consider using `nohup <your command> &`
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
@@ -138,23 +136,36 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `docker logs -f ogn2dump1090`
 - `docker logs -f tar1090`
 
-### useful docker commands
+### monitor docker statistics
+- `docker stats` (`CTRL C` to exit)
+
+### open a shell inside your container
+- `docker exec -it <yourDockerContainer> bash`
+
+### useful docker commands (examples for standard build)
 - `docker ps -a` list all docker containers, including stopped ones
-- stop and deactivate containers
+- docker **container** related commands
   - `docker stop <container_name_or_id>` stop a running container
   - `docker rm <container_name_or_id>` deactivate a stopped container
   - `docker container prune` remove all stopped containers
-  - `docker compose down` stop and remove containers, networks
-  - `docker compose up --detach` create and start containers
-  - `docker compose up --detach --build` build, create and start containers
-- list and delete unused docker images
+  - `docker compose down` stop and remove all containers and networks
+  - `docker compose build --no-cache` only build images
+  - `docker compose up --detach --build --force-recreate` create images and start containers
+  - `docker compose up --detach --force-recreate` recreate and start containers
+- docker **image** related commands
   - `docker image ls` list docker images
-  - `docker rmi <image_id_or_name>` delete unused docker image
+  - `docker rmi <image_id_or_name>` delete docker image
   - `docker image prune` delete all unused docker images
-- remove unused data e.g. to save space
-  - `docker system prune`
-- clean your entire docker environment e.g. for a fresh `docker compose`
+- docker **system** related commands
+  - `docker system prune` clean your docker environment
+- clean your entire docker environment e.g. for a fresh setup
   - `docker rm -f $(docker ps -aq)` force remove ALL containers
-  - `docker system prune -af --volumes` clean your docker environment
-- open a shell inside your container
-  - `docker exec -it <yourDockerContainer> bash`
+  - `docker system prune -af --volumes` clean your entire docker environment
+
+ ### docker terms and related meaning
+| Term       | Meaning                                              |
+| ---------- | ---------------------------------------------------- |
+| Dockerfile | Build instructions                                   |
+| Image      | Built / immutable system image                       |
+| Container  | Running instance of an image                         |
+| Compose    | Orchestration / startup plan for multiple containers |

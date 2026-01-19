@@ -99,7 +99,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `docker compose up --detach --build --force-recreate`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
----
+
 ### advanced build (with addidtional feeders)
 - `cd ./docker-ogn2readsb`
 - `nano compose-multifeed.yaml`
@@ -108,7 +108,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
-
+---
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`

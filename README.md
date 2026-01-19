@@ -5,7 +5,7 @@ if you are upgrading from an earlier version, particularly in case the `config.v
 - `git pull`
 - re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
 - `docker compose up --detach --build` (without optional feeds) or
-- `docker compose up --file compose-multifeed.yaml up --detach --build` (with optional feeds)
+- `docker compose up --file compose-multifeed.yaml up --detach --build --force-recreate` (with optional feeds)
 ---
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:

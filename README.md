@@ -47,12 +47,24 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
-### prepare SDRs
+### prepare SDR_868_SERIAL and SDR_1090_SERIAL
 - identify or set both SDR serials (e.g. 868 and 1090), they are required for the `config.vars` below
-- unplug all SDRs, leaving only the SDR to be used for 1090 MHz reception plugged in, then issue the following command:
-  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 1090`
 - unplug all SDRs, leaving only the SDR to be used for 868 MHz reception plugged in, then issue the following command:
   - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 868` 
+- unplug all SDRs, leaving only the SDR to be used for 1090 MHz reception plugged in, then issue the following command:
+  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_eeprom ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -s 1090`
+
+### prepare SDR_868_PPM and SDR_1090_PPM
+- unplug all SDRs, leaving only the SDR to be used for 868 MHz reception plugged in, then issue the following command:
+  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_test ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -p`
+  - let it run for 10-15 min (important so that the SDR warms up)
+  - note the ppm listed in the related output, e.g. `... cumulative PPM: -1` and use that for SDR_868_PPM
+  - modern SDRs have a TCXO, therefore SDR_868_PPM = 0 is the default
+- unplug all SDRs, leaving only the SDR to be used for 1090 MHz reception plugged in, then issue the following command:
+  - `docker run --rm -it --device /dev/bus/usb --entrypoint rtl_test ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder -p`
+  - let it run for 10-15 min (important so that the SDR warms up)
+  - note the ppm listed in the related output, e.g. `... cumulative PPM: -1` and use that for SDR_1090_PPM
+  - modern SDRs have a TCXO, therefore SDR_1090_PPM = 0 is the default
 
 ### prepare ogn2readsb
 - `git clone https://github.com/VirusPilot/docker-ogn2readsb`

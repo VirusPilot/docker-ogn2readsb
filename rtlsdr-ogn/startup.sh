@@ -7,4 +7,5 @@ envsubst < /app/ogn-template.conf > /app/rtlsdr-ogn/Template.conf
 cd /app/rtlsdr-ogn
 
 # debians procServ can't listen publically.. proxy it
+socat TCP-LISTEN:50000,fork,bind=$(hostname -i) TCP4:localhost:50000 &
 socat TCP-LISTEN:50001,fork,bind=$(hostname -i) TCP4:localhost:50001

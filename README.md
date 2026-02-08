@@ -137,6 +137,11 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - quick hack for now: enable "UK Radar Corridors":
 <img width="510" height="346" alt="DE AT Traffic Patterns" src="https://github.com/user-attachments/assets/a9db25d0-0659-48ce-99eb-3277e88ea54e" />
 
+### disable local APRS Proxy Server
+- `nano compose.yaml` or `nano compose-multifeed.yaml`
+- in section `rtlsdr-ogn:environment:` replace `APRS_SERVER=ogn2dump1090:14580` with `APRS_SERVER=aprs.glidernet.org:14580`
+- `docker compose --detach --force-recreate` or `docker compose --file compose-multifeed.yaml up --detach --force-recreate`
+
 ### monitor OGN details
 - `http://yourReceiverIP:8080`
 - `http://yourReceiverIP:8081`

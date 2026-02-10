@@ -2,16 +2,13 @@ FROM debian:trixie-slim
 WORKDIR /app
 
 RUN apt-get update && apt-get install --yes \
-    git python3-venv python3-setuptools python3-pip python3-dev build-essential moreutils
-
-RUN pip install --break-system-packages pyasyncore
+    git python3-venv python3-setuptools python3-pyasyncore python3-pip python3-dev build-essential moreutils
 
 ADD https://api.github.com/repos/wiedehopf/mlat-client/git/refs/heads/master version.txt
 
 RUN git clone https://github.com/wiedehopf/mlat-client && \
     cd mlat-client && \
-    python3 setup.py build && \
-    python3 setup.py install && \
+    pip install --break-system-packages . && \
     cd .. && \
     rm -r mlat-client
 

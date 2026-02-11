@@ -1,6 +1,7 @@
 ### NOTE: major changes as of 11 Feb, 2026
 since the adsbexchange feed was dropped in favor of adsb.lol, the following upgrade steps are required:
 - `cd ./docker-ogn2readsb`
+- `git pull`
 - `docker rm -f $(docker ps -aq)`
 - `docker system prune -af --volumes`
 - `docker compose up --detach --build` (without optional feeds) or

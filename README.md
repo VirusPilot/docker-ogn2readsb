@@ -1,9 +1,10 @@
 ### NOTE: major changes as of 11 Feb, 2026
-since in the standard docker build the adsbexchange feed was dropped in favor of adsb.lol, the following upgrade steps are required:
+since in the adsbexchange feed was dropped in favor of adsb.lol, the following upgrade steps are required:
 - `cd ./docker-ogn2readsb`
 - `docker rm -f $(docker ps -aq)`
 - `docker system prune -af --volumes`
-- `docker compose up --detach --build --force-recreate`
+- `docker compose up --detach --build` (without optional feeds) or
+- `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate` (with optional feeds)
 ### NOTE: upgrading from an earlier `config.vars` version
 if you are upgrading from an earlier `config.vars` version, particularly in case the `config.vars` template has changed, you need to perform the following steps:
 - note down your existing `config.vars` variable entries
@@ -11,7 +12,7 @@ if you are upgrading from an earlier `config.vars` version, particularly in case
 - `git pull`
 - re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
 - `docker compose up --detach --build` (without optional feeds) or
-- `docker compose up --file compose-multifeed.yaml up --detach --build --force-recreate` (with optional feeds)
+- `docker compose --file compose-multifeed.yaml up --detach --build --force-recreate` (with optional feeds)
 ---
 ### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:

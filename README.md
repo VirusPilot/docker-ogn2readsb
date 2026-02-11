@@ -15,9 +15,9 @@ consisting of the following components:
   - OGN traffic will be displayed as other traffic alongside with ADS-B traffic, using the readsb tar1090 webinterface (e.g. http://yourRaspberryPi.local/tar1090/)
 - [rtlsdr-ogn](https://github.com/VirusPilot/ogn-pi34) (feeding glidernet.org with OGN traffic)
 - [readsb](https://github.com/wiedehopf/readsb) (feeding glidernet.org with ADS-B traffic and decoding/forwarding traffic to the tar1090 map)
-- [mlat-client-adsbx](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsbexchange.com)
+- [mlat-client-adsblol](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsb.lol)
 - [tar1090](https://github.com/wiedehopf/tar1090) (traffic map)
-- optional feeds:
+- optional feeds (advanced build):
   - adsbexchange.com
   - airplanes.live
   - adsb.lol
@@ -106,13 +106,14 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano tar1090/Dockerfile`
 -  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
 
-### standard build (only feeding glidernet)
+### standard build (only feeding glidernet and adsb.lol)
 - `cd ./docker-ogn2readsb`
 - `docker compose up --detach --build --force-recreate`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 
 ### advanced build (with addidtional feeders)
+- quite some manual editing is required, please use it only if you know what you are doing
 - `cd ./docker-ogn2readsb`
 - `nano compose-multifeed.yaml`
   - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)
@@ -147,8 +148,9 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `http://yourReceiverIP:8081`
 
 ### monitor docker containers
+- `docker compose logs -f` or `docker compose --file compose-multifeed.yaml logs -f` (monitor all containers)
 - `docker logs -f rtlsdr-ogn`
-- `docker logs -f mlat-client-adsbx`
+- `docker logs -f mlat-client-adsblol`
 - `docker logs -f readsb`
 - `docker logs -f ogn2dump1090`
 - `docker logs -f tar1090`

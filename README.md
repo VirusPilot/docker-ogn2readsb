@@ -1,5 +1,11 @@
-### NOTE: upgrading from an earlier version
-if you are upgrading from an earlier version, particularly in case the `config.vars` template has changed, you need to perform the following steps:
+### NOTE: major changes as of 11 Feb, 2026
+since in the standard docker build the adsbexchange feed was dropped in favor of adsb.lol, the following upgrade steps are required:
+- `cd ./docker-ogn2readsb`
+- `docker rm -f $(docker ps -aq)`
+- `docker system prune -af --volumes`
+- `docker compose up --detach --build --force-recreate`
+### NOTE: upgrading from an earlier `config.vars` version
+if you are upgrading from an earlier `config.vars` version, particularly in case the `config.vars` template has changed, you need to perform the following steps:
 - note down your existing `config.vars` variable entries
 - `git checkout config.vars`
 - `git pull`
@@ -17,7 +23,7 @@ consisting of the following components:
 - [readsb](https://github.com/wiedehopf/readsb) (feeding glidernet.org with ADS-B traffic and decoding/forwarding traffic to the tar1090 map)
 - [mlat-client-adsblol](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsb.lol)
 - [tar1090](https://github.com/wiedehopf/tar1090) (traffic map)
-- optional feeds (advanced build):
+- optional feeds (advanced docker build):
   - adsbexchange.com
   - airplanes.live
   - adsb.lol
@@ -43,7 +49,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 
 ### prepare system and docker
 - `sudo apt update && sudo apt install --yes git wget`
-- `bash <(wget -q -O - https://raw.githubusercontent.com/VirusPilot/docker-install/main/docker-install.sh)`
+- `bash <(wget -q -O - https://raw.githubusercontent.com/sdr-enthusiasts/docker-install/main/docker-install.sh)`
 - you may be asked `Y/n` a couple of times, it is safe to answer all of them with `Y`
 - `sudo reboot`
 

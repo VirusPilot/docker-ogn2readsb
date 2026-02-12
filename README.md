@@ -16,7 +16,7 @@ if you are upgrading from an earlier `config.vars` version, particularly in case
 - re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
 - `docker compose --parallel 1 up --detach --force-recreate` (or `docker compose --file compose-multifeed.yaml --parallel 1 up --detach`)
 ---
-### docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
+# docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)
   - simple Python tool to inject Open Glider Network Traffic (from an existing local OGN decoder instance) into an existing readsb ADS-B decoder instance for display on a unified tar1090 map

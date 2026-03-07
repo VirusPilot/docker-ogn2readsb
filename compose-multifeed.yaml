@@ -15,7 +15,7 @@ services:
       - JSON_OPTIONS=--json-location-accuracy 2 --range-outline-hours 24 --write-json /tmp/readsb --quiet
       - FEEDER_1=--net-connector feed1.adsbexchange.com,30004,beast_reduce_out
       - FEEDER_2=--net-connector feed.airplanes.live,30004,beast_reduce_out
-      - FEEDER_3=--net-connector in.adsb.lol,30004,beast_reduce_out --net-connector=out.adsb.lol,1366,sbs_in_mlat
+      - FEEDER_3=--net-connector in.adsb.lol,30004,beast_reduce_out #--net-connector=out.adsb.lol,1366,sbs_in_mlat
       - FEEDER_4=--net-connector feed.adsb.fi,30004,beast_reduce_out
     volumes:
       - /tmp:/tmp

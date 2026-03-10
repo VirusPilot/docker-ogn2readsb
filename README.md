@@ -1,5 +1,5 @@
 ### NOTE: major changes as of 10 March, 2026 (migrate to prebuilt images from GHCR)
-the following upgrade steps are required for a fresh setup:
+the following upgrade steps are required for a fresh setup (your prior modified `config.vars` will be used for the upgrade):
 - `cd ./docker-ogn2readsb`
 - `docker rm -f $(docker ps -aq)`
 - `docker system prune -af --volumes`

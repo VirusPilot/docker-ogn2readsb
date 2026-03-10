@@ -1,20 +1,11 @@
-### NOTE: major changes as of 11 Feb, 2026
-the following upgrade steps are required:
+### NOTE: major changes as of 10 March, 2026 (migrate to prebuilt images from GHCR)
+the following upgrade steps are required for a fresh setup:
 - `cd ./docker-ogn2readsb`
-- `git pull`
 - `docker rm -f $(docker ps -aq)`
 - `docker system prune -af --volumes`
-- `docker compose --parallel 1 build` (or `docker compose --file compose-multifeed.yaml --parallel 1 build`)
-- `docker compose --parallel 1 up --detach --force-recreate` (or `docker compose --file compose-multifeed.yaml --parallel 1 up --detach --force-recreate`)
-### NOTE: upgrading from an earlier `config.vars` version
-if you are upgrading from an earlier `config.vars` version, particularly in case the `config.vars` template has changed, you need to perform the following steps:
-- note down your existing `config.vars` variable entries
-- `cd ./docker-ogn2readsb`
-- `git checkout config.vars`
 - `git pull`
-- `nano config.vars`
-- re-enter your prior variable entries in  the new and empty `config.vars` and fill out the new (optional) config variables
-- `docker compose --parallel 1 up --detach --force-recreate` (or `docker compose --file compose-multifeed.yaml --parallel 1 up --detach`)
+- `docker compose build` (or `docker compose --file compose-multifeed.yaml build`)
+- `docker compose up -d ` (or `docker compose --file compose-multifeed.yaml up -d `)
 ---
 # docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
@@ -117,8 +108,8 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 
 ### standard build (only feeding glidernet and adsb.lol)
 - `cd ./docker-ogn2readsb`
-- `docker compose --parallel 1 build`
-- `docker compose --parallel 1 up --detach --force-recreate`
+- `docker compose build`
+- `docker compose up -d`
 
 ### advanced build (with addidtional feeders)
 - quite some manual editing is required, please use it only if you know what you are doing
@@ -126,13 +117,13 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano compose-multifeed.yaml`
   - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)
   - delete (or comment out) unused/unwanted feeder entries
-- `docker compose --file compose-multifeed.yaml --parallel 1 build`
-- `docker compose --file compose-multifeed.yaml --parallel 1 up --detach --force-recreate`
+- `docker compose --file compose-multifeed.yaml build`
+- `docker compose --file compose-multifeed.yaml up -d`
 ---
 ### apply configuration changes
 - `cd ./docker-ogn2readsb`
 - `nano config.vars`
-- `docker compose --parallel 1 up --detach --force-recreate` (or `docker compose --file compose-multifeed.yaml --parallel 1 up --detach --force-recreate`)
+- `docker compose up -d` (or `docker compose --file compose-multifeed.yaml up -d`)
 
 ### monitor all ADSB and OGN traffic consolidated in a single tar1090 instance
 - `http://yourReceiverIP.local/tar1090`
@@ -144,7 +135,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 ### disable local APRS Proxy Server
 - `nano compose.yaml` or `nano compose-multifeed.yaml`
 - in section `rtlsdr-ogn:environment:` replace `APRS_SERVER=ogn2dump1090:14580` with `APRS_SERVER=aprs.glidernet.org:14580`
-- `docker compose --parallel 1 up --detach --force-recreate` or `docker compose --file compose-multifeed.yaml --parallel 1 up --detach --force-recreate`
+- `docker compose up -d ` or `docker compose --file compose-multifeed.yaml up -d`
 
 ### monitor OGN details
 - `http://yourReceiverIP:8080`
@@ -172,8 +163,8 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
   - `docker container prune` remove all stopped containers
   - `docker compose down` stop and remove all containers and networks
   - `docker compose build --no-cache` only build images
-  - `docker compose up --detach --build --force-recreate` create images and start containers
-  - `docker compose up --detach --force-recreate` recreate and start containers
+  - `docker compose up -d --build` create images and start containers
+  - `docker compose up -d` recreate and start containers
 - docker **image** related commands
   - `docker image ls` list docker images
   - `docker rmi <image_id_or_name>` delete docker image

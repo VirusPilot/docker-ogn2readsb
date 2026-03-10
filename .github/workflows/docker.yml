@@ -3,6 +3,9 @@ name: build-arm64-and-amd64-images
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
   workflow_dispatch:
   schedule:
     - cron: "0 2 * * 1" # every Monday at 2:00 AM

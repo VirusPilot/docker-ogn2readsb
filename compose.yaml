@@ -1,6 +1,6 @@
 services:
   readsb:
-    build: readsb/
+    image: ghcr.io/viruspilot/readsb:latest
     restart: unless-stopped
     container_name: readsb
     privileged: true
@@ -15,16 +15,18 @@ services:
     volumes:
       - /tmp:/tmp
   mlat-client-adsblol:
-    build: mlat-client/
+    image: ghcr.io/viruspilot/mlat-client:latest
     container_name: mlat-client-adsblol
     restart: unless-stopped
+    depends_on:
+      - readsb
     env_file: config.vars
     environment:
       - MLATSERVER=in.adsb.lol:31090
       - BEAST_OUT_HOST=readsb:30005
       - BEAST_IN_HOST=readsb:30104
   tar1090:
-    build: tar1090
+    image: ghcr.io/viruspilot/tar1090:latest
     container_name: tar1090
     restart: unless-stopped
     depends_on:
@@ -35,9 +37,12 @@ services:
       - /tmp/readsb:/tmp/readsb
       - /tmp/tar1090:/run/tar1090
   rtlsdr-ogn:
-    build: rtlsdr-ogn
+    # build: rtlsdr-ogn # for local testing, otherwise use the prebuilt image from GHCR
+    image: ghcr.io/viruspilot/rtlsdr-ogn:latest
     container_name: rtlsdr-ogn
     restart: unless-stopped
+    depends_on:
+      - readsb
     privileged: true
     ports:
       - 8080:8080
@@ -48,9 +53,11 @@ services:
     environment:
       - APRS_SERVER=ogn2dump1090:14580
   ogn2dump1090:
-    build: ogn2dump1090
+    image: ghcr.io/viruspilot/ogn2dump1090:latest
     container_name: ogn2dump1090
     restart: unless-stopped
+    depends_on:
+      - readsb
     env_file: config.vars
     environment:
       - OGN_DECODE_TELNET_HOST=rtlsdr-ogn

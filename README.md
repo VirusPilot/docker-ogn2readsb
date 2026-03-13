@@ -4,8 +4,7 @@ the following upgrade steps are required for a fresh setup (your prior modified 
 - `docker rm -f $(docker ps -aq)`
 - `docker system prune -af --volumes`
 - `git pull`
-- `docker compose build` (or `docker compose --file compose-multifeed.yaml build`)
-- `docker compose up -d ` (or `docker compose --file compose-multifeed.yaml up -d `)
+- `docker compose up -d --build` (or `docker compose --file compose-multifeed.yaml up -d --build`)
 ---
 # docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:

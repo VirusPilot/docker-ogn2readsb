@@ -4,7 +4,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install --yes \
     chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv libavcodec-dev
 
-RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \
+RUN bash -c 'if [[ "$(arch)" == *86* ]]; then \
         wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-x64-0.3.3.tgz"; \
     else \
         wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-arm64-0.3.3.tgz"; \

@@ -2,12 +2,12 @@ FROM debian:trixie-slim
 WORKDIR /app
 
 RUN apt-get update && apt-get install --yes \
-    chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv
+    chrony telnet libpng16-16 wget gettext-base librtlsdr-dev librtlsdr0 rtl-sdr socat moreutils procserv libavcodec-dev
 
 RUN bash -c 'if [[ "$(arch)" == *x86* ]]; then \
-        wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-x64-0.3.3_Jammy.tgz"; \
+        wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-x64-0.3.3.tgz"; \
     else \
-        wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-arm64-0.3.3_Trixie.tgz"; \
+        wget "https://github.com/VirusPilot/ogn-pi34/raw/master/rtlsdr-ogn-bin-arm64-0.3.3.tgz"; \
     fi'
 
 RUN tar xzf rtlsdr-ogn-*.tgz && \

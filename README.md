@@ -14,7 +14,7 @@ consisting of the following components:
   - OGN traffic will be displayed as other traffic alongside with ADS-B traffic, using the readsb tar1090 webinterface (e.g. http://yourRaspberryPi.local/tar1090/)
 - [rtlsdr-ogn](https://github.com/VirusPilot/ogn-pi34) (feeding glidernet.org with OGN traffic)
 - [readsb](https://github.com/wiedehopf/readsb) (feeding glidernet.org with ADS-B traffic and decoding/forwarding traffic to the tar1090 map)
-- [mlat-client-adsblol](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsb.lol)
+- [mlat-client-adsbx](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsbexchange.com)
 - [tar1090](https://github.com/wiedehopf/tar1090) (traffic map)
 - optional feeds (advanced docker build):
   - adsbexchange.com
@@ -105,7 +105,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano tar1090/Dockerfile`
 -  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
 
-### standard build (only feeding glidernet and adsb.lol)
+### standard build (only feeding glidernet and adsbexchange.com)
 - `cd ./docker-ogn2readsb`
 - `docker compose build`
 - `docker compose up -d`
@@ -143,7 +143,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 ### monitor docker containers
 - `docker compose logs -f` or `docker compose --file compose-multifeed.yaml logs -f` (monitor all containers)
 - `docker logs -f rtlsdr-ogn`
-- `docker logs -f mlat-client-adsblol`
+- `docker logs -f mlat-client-adsbx`
 - `docker logs -f readsb`
 - `docker logs -f ogn2dump1090`
 - `docker logs -f tar1090`

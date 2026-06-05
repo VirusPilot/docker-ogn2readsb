@@ -63,7 +63,7 @@ services:
       - readsb
     env_file: config.vars
     environment:
-      - OGN_DECODE_TELNET_HOST=rtlsdr-ogn
+      - OGN_DECODE_TELNET_HOST= # redundant telnet connection disabled, add rtlsdr-ogn to enable it
       - OGN_DECODE_TELNET_PORT=50001
       - SBS_DESTINATION_HOST=readsb
       - SBS_DESTINATION_PORT=30008

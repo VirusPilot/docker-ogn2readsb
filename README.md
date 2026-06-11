@@ -1,11 +1,3 @@
-### NOTE: major changes as of 10 March, 2026 (migrate to prebuilt images from GHCR)
-the following upgrade steps are required for a fresh setup (your prior modified `config.vars` will be used for the upgrade):
-- `cd ./docker-ogn2readsb`
-- `docker rm -f $(docker ps -aq)`
-- `docker system prune -af --volumes`
-- `git pull`
-- `docker compose up -d --build` (or `docker compose --file compose-multifeed.yaml up -d --build`)
----
 # docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)
@@ -107,7 +99,6 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 
 ### standard build (only feeding glidernet and adsbexchange.com)
 - `cd ./docker-ogn2readsb`
-- `docker compose build`
 - `docker compose up -d`
 
 ### advanced build (with addidtional feeders)
@@ -116,7 +107,6 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `nano compose-multifeed.yaml`
   - add your feeder credentials (e.g. SHARING KEY, USERNAME, LAT, LON, ALT)
   - delete (or comment out) unused/unwanted feeder entries
-- `docker compose --file compose-multifeed.yaml build`
 - `docker compose --file compose-multifeed.yaml up -d`
 ---
 ### apply configuration changes
@@ -156,8 +146,6 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
   - `docker rm <container_name_or_id>` deactivate a stopped container
   - `docker container prune` remove all stopped containers
   - `docker compose down` stop and remove all containers and networks
-  - `docker compose build --no-cache` only build images
-  - `docker compose up -d --build` create images and start containers
   - `docker compose up -d` recreate and start containers
 - docker **image** related commands
   - `docker image ls` list docker images

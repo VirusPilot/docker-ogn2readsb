@@ -65,5 +65,6 @@ services:
       - SBS_DESTINATION_HOST=readsb
       - SBS_DESTINATION_PORT=30008
       - DRONEAWARE_UDP_PORT=None # set to 9999 to forward DroneAware data to readsb (listens for UDP broadcasts of DroneAware)
+      - RESPECT_OGN_ADDRESS_TYPE=True # set to False to treat all OGN addresses as ICAO addresses, which is useful for SafeSky targets that report as OGN addresses but are actually valid ICAO addresses
     ports:
       - 9999:9999/udp

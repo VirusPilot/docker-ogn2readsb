@@ -27,4 +27,4 @@ metar_source = "${METAR_SOURCE_ICAO}"
 # If set to false, all OGN addresses are passed as if they were ICAO adresses.
 # This mainly helps with SafeSky targets when an aprs_subscribe_filter is set. These
 # ALWAYS report as OGN adresses, despite actually being valid ICAO adresses.
-respect_ogn_address_type = True
+respect_ogn_address_type = ${RESPECT_OGN_ADDRESS_TYPE}

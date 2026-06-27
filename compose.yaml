@@ -64,3 +64,6 @@ services:
       - OGN_DECODE_TELNET_PORT=50001
       - SBS_DESTINATION_HOST=readsb
       - SBS_DESTINATION_PORT=30008
+      - DRONEAWARE_UDP_PORT=None # set to 9999 to forward DroneAware data to readsb (listens for UDP broadcasts of DroneAware)
+    ports:
+      - 9999:9999/udp

@@ -21,3 +21,10 @@ aprs_subscribe_filter = "${APRS_SUBSCRIBE_FILTER}"
 # ogn2dump1090 can convert it for you, by fetching METARS from a nearby airport via https://aviationweather.gov/data/api/
 # Must be the 4 letter ICAO code of a nearby airport, e.g. "EDNY". Test the request via https://aviationweather.gov/api/data/metar?ids=EDNY
 metar_source = "${METAR_SOURCE_ICAO}"
+
+# If set to True, aircraft addresses indicated as non-icao will receive a "~" prefix for readsb to not merge them with
+# a potential ICAO address aircraft.
+# If set to false, all OGN addresses are passed as if they were ICAO adresses.
+# This mainly helps with SafeSky targets when an aprs_subscribe_filter is set. These
+# ALWAYS report as OGN adresses, despite actually being valid ICAO adresses.
+respect_ogn_address_type = True

@@ -92,11 +92,6 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 | SDR_1090_PPM | 0 | change only if you know your SDR's ppm |
 | SDR_1090_BIAS_T_ENABLE | 0 | set to 1 to enable Bias Tee on your SDR, e.g. to power a LNA |
 
-### option to merge inconsistent address type transmissions
-- `cd ./docker-ogn2readsb`
-- `nano tar1090/Dockerfile`
--  add ` && echo 'MergeNonIcao = true;' >> config.js` after `echo 'jaeroLabel = "OGN";' >> config.js`
-
 ### standard build (only feeding glidernet and adsbexchange.com)
 - `cd ./docker-ogn2readsb`
 - `docker compose up -d`

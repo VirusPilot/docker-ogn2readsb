@@ -1,18 +1,18 @@
-## new features (as of 27.June 2026)
+## New features (as of 27 June 2026)
 - [DroneAware](http://droneaware.io) support:
-  - requires running dronwaware service (as of DronAware release v1.4.0)
+  - requires running DroneAware service (as of DroneAware release v1.4.0)
   - set `DRONEAWARE_LOCAL_UDP_TARGETS=127.0.0.1:9999` in DroneAware environment settings
   - set `DRONEAWARE_UDP_PORT=9999` in `compose.yaml` or `compose-multifeed.yaml`
 - new default setting `RESPECT_OGN_ADDRESS_TYPE=True`
-  - aircraft addresses indicated as non-icao will receive a "~" prefix for readsb to not merge them with a potential ICAO address aircraft
-  - if set to `=False`, all OGN addresses are passed as if they were ICAO adresses; this mainly helps with SafeSky targets when an `aprs_subscribe_filter` is set; these are ALWAYS reported as OGN addresses, despite actually being valid ICAO addresses
+  - aircraft addresses indicated as non-ICAO will receive a "~" prefix for readsb to not merge them with a potential ICAO-address aircraft
+  - if set to `False`, all OGN addresses are passed as if they were ICAO addresses; this mainly helps with SafeSky targets when an `aprs_subscribe_filter` is set; these are ALWAYS reported as OGN addresses, despite actually being valid ICAO addresses
 
 # docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)
   - simple Python tool to inject Open Glider Network Traffic (from an existing local OGN decoder instance) into an existing readsb ADS-B decoder instance for display on a unified tar1090 map
   - furthermore online aggregated traffic from `aprs.glidernet.org` can optionally be injected for a reasonably selected radius around a given location
-  - OGN traffic will be displayed as other traffic alongside with ADS-B traffic, using the readsb tar1090 webinterface (e.g. http://yourRaspberryPi.local/tar1090/)
+  - OGN traffic will be displayed as other traffic alongside ADS-B traffic, using the readsb tar1090 web interface (e.g. http://yourRaspberryPi.local/tar1090/)
 - [rtlsdr-ogn](https://github.com/VirusPilot/ogn-pi34) (feeding glidernet.org with OGN traffic)
 - [readsb](https://github.com/wiedehopf/readsb) (feeding glidernet.org with ADS-B traffic and decoding/forwarding traffic to the tar1090 map)
 - [mlat-client-adsbx](https://github.com/wiedehopf/mlat-client) (display MLAT traffic from adsbexchange.com)
@@ -30,7 +30,7 @@ consisting of the following components:
 
 ![ogn2readsb](https://github.com/user-attachments/assets/0e3c71e2-113a-4b45-88c6-007bedd7a064)
 ### supported operating systems
-Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer):
+Debian or Debian-based Linux Operating Systems (64-bit Debian 13 Trixie or newer):
 - Debian
 - Ubuntu
 - DietPi
@@ -39,7 +39,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 ### supported hardware architectures
 - arm64 (64-bit ARM CPUs with hardware floating point processor)
 - x64 (64-bit AMD/Intel CPUs)
-- SDRs: native support of RTL-SDR Blog v4 SDR since Debian 13 Trixie
+- SDRs: native support for RTL-SDR Blog v4 SDR since Debian 13 Trixie
 
 ### prepare system and docker
 - `sudo apt update && sudo apt install --yes git wget`
@@ -92,8 +92,8 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 | FREQ_PLAN | 0 | 0=automatic (default), 1=EU/Africa, 2=USA/Canada, 3=South America/Australia, 4=New Zealand, 5=Israel, 6=EU/Africa 433MHz, 7=Japan |
 | GSM_CENTER_FREQ | 935.8 | default = 0, change only if you know your closest GSM900 station frequency [MHz] |
 | ADSB_MAX_ALT_FT | 18000 | ADSB max OGN feed altitude [ft] |
-| METAR_SOURCE_ICAO | EDDF | 4 letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |
-| APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined postion (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers |
+| METAR_SOURCE_ICAO | EDDF | 4-letter ICAO code of a nearby airport with [METAR](https://aviationweather.gov) service |
+| APRS_SUBSCRIBE_FILTER | r/50.0/10.0/100 | circle in [km] around a defined position (example: LAT 50.0, LON 10.0, CIRCLE 100 km) for which you want to receive traffic from the OGN APRS servers |
 | SDR_868_SERIAL | 868 | enter your OGN SDR serial |
 | SDR_868_PPM | 0 | change only if you know your SDR's ppm |
 | SDR_868_BIAS_T_ENABLE | 0 | set to 1 to enable Bias Tee on your SDR, e.g. to power a LNA |
@@ -105,7 +105,7 @@ Debian or Debian-based Linux Operating Systems (64bit Debian 13 Trixie or newer)
 - `cd ./docker-ogn2readsb`
 - `docker compose up -d`
 
-### advanced build (with addidtional feeders)
+### advanced build (with additional feeders)
 - quite some manual editing is required, please use it only if you know what you are doing
 - `cd ./docker-ogn2readsb`
 - `nano compose-multifeed.yaml`

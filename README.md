@@ -1,3 +1,12 @@
+## new features (as of 27.June 2026)
+- [DroneAware](http://droneaware.io) support:
+  - requires running dronwaware service (as of DronAware release v1.4.0)
+  - set `DRONEAWARE_LOCAL_UDP_TARGETS=127.0.0.1:9999` in DroneAware environment settings
+  - set `DRONEAWARE_UDP_PORT=9999` in `compose.yaml` or `compose-multifeed.yaml`
+- new default setting `RESPECT_OGN_ADDRESS_TYPE=True`
+  - aircraft addresses indicated as non-icao will receive a "~" prefix for readsb to not merge them with a potential ICAO address aircraft
+  - if set to `=False`, all OGN addresses are passed as if they were ICAO adresses; this mainly helps with SafeSky targets when an `aprs_subscribe_filter` is set; these are ALWAYS reported as OGN addresses, despite actually being valid ICAO addresses
+
 # docker version of [ogn2readsb](https://github.com/b3nn0/ogn2dump1090)
 consisting of the following components:
 - [ogn2dump1090](https://github.com/b3nn0/ogn2dump1090)

@@ -81,7 +81,9 @@ services:
     env_file: config.vars
     environment:
       - BEASTHOST=readsb
+      - BEASTPORT=30005
       - FR24KEY=
+      - MLAT=yes
     dns_search: . # prevents rare connection issues related to a bug in docker and fr24feed
 
   piaware:
@@ -95,7 +97,10 @@ services:
       - RECEIVER_TYPE=relay
       - BEASTHOST=readsb
       - BEASTPORT=30005
+      - ALLOW_MLAT=yes
+      - MLAT_RESULTS=yes
       - MLAT_RESULTS_BEASTHOST=readsb
+      - MLAT_RESULTS_BEASTPORT=30005
     tmpfs:
       - /run:exec,size=64M
       - /var/log
@@ -106,12 +111,16 @@ services:
     restart: unless-stopped
     env_file: config.vars
     environment:
-      - TZ=Europe/Berlin
+      - TZ="Europe/Berlin"
       - BEASTHOST=readsb
+      - BEASTPORT=30005
       - LAT=
       - LONG=
       - ALT=
       - SHARING_KEY=
+      - ENABLE_MLAT=true
+      - MLAT_RESULTS_BEASTHOST=readsb
+      - MLAT_RESULTS_BEASTPORT=30005
 
   opensky:
     image: ghcr.io/sdr-enthusiasts/docker-opensky-network:latest
@@ -119,8 +128,9 @@ services:
     restart: unless-stopped
     env_file: config.vars
     environment:
-      - TZ=Europe/Berlin
+      - TZ="Europe/Berlin"
       - BEASTHOST=readsb
+      - BEASTPORT=30005
       - LAT=
       - LONG=
       - ALT=
@@ -135,8 +145,9 @@ services:
       - 30053:30053
     env_file: config.vars
     environment:
-      - TZ=Europe/Berlin
+      - TZ="Europe/Berlin"
       - BEASTHOST=readsb
+      - BEASTPORT=30005
       - LAT=
       - LONG=
       - SHARECODE=

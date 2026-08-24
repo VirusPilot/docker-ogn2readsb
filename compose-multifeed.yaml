@@ -134,6 +134,7 @@ services:
       - LAT=
       - LONG=
       - ALT=
+      - ENABLE_MLAT=true
       - OPENSKY_USERNAME=
       - OPENSKY_SERIAL=
 

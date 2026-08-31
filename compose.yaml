@@ -52,6 +52,7 @@ services:
     env_file: config.vars
     environment:
       - APRS_SERVER=ogn2dump1090:14580
+#      - TOA_SERVER=ogn3.glidernet.org:50014
   ogn2dump1090:
     image: ghcr.io/viruspilot/ogn2dump1090:latest
     container_name: ogn2dump1090
